@@ -30,16 +30,16 @@ const BlogCard = ({ props }) => {
                         <div className='flex items-center justify-between pt-2 border-t'>
                             <div className='flex items-center gap-2'>
                                 <Avatar>
-                                    <AvatarImage src={props.author.avatar || usericon} />
+                                    <AvatarImage src={props?.author?.avatar || usericon} />
                                 </Avatar>
-                                <span className='text-sm'>{props.author.name}</span>
+                                <span className='text-sm'>{props?.author?.name || 'Unknown Author'}</span>
                             </div>
                             <span className='flex items-center gap-1 text-sm text-gray-600'>
                                 <FaRegCalendarAlt />
                                 {moment(props.createdAt).format('DD-MM-YYYY')}
                             </span>
                         </div>
-                        {props.author.role === 'admin' && (
+                        {props?.author?.role === 'admin' && (
                             <div className='pt-1'>
                                 <Badge variant="outline" className="bg-black text-white">Admin</Badge>
                             </div>

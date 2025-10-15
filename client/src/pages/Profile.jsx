@@ -24,7 +24,7 @@ const Profile = () => {
     const [file, setFile] = useState()
     const user = useSelector((state) => state.user)
 
-    const { data: userData, loading, error } = useFetch(`${getEvn('VITE_API_BASE_URL')}/user/get-user/${user.user._id}`,
+    const { data: userData, loading, error } = useFetch(`${getEvn('VITE_API_BASE_URL')}/user/get-user/${user?.user?._id}`,
         { method: 'get', credentials: 'include' },
 
     )
@@ -52,9 +52,9 @@ const Profile = () => {
     useEffect(() => {
         if (userData && userData.success) {
             form.reset({
-                name: userData.user.name,
-                email: userData.user.email,
-                bio: userData.user.bio,
+                name: userData?.user?.name || '',
+                email: userData?.user?.email || '',
+                bio: userData?.user?.bio || '',
             })
         }
     }, [userData])
@@ -67,7 +67,7 @@ const Profile = () => {
             formData.append('file', file)
             formData.append('data', JSON.stringify(values))
 
-            const response = await fetch(`${getEvn('VITE_API_BASE_URL')}/user/update-user/${userData.user._id}`, {
+            const response = await fetch(`${getEvn('VITE_API_BASE_URL')}/user/update-user/${userData?.user?._id}`, {
                 method: 'put',
                 credentials: 'include',
                 body: formData

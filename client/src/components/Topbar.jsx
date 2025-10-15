@@ -85,7 +85,7 @@ const Topbar = () => {
                     <IoMdSearch size={25} />
                 </button>
 
-                {!user.isLoggedIn ?
+                {!user?.isLoggedIn ?
                     <Button asChild className="rounded-full">
                         <Link to={RouteSignIn}  >
                             <MdLogin />
@@ -96,14 +96,14 @@ const Topbar = () => {
                     <DropdownMenu>
                         <DropdownMenuTrigger>
                             <Avatar>
-                                <AvatarImage src={user.user.avatar || usericon} />
+                                <AvatarImage src={user?.user?.avatar || usericon} />
                             </Avatar>
 
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
                             <DropdownMenuLabel>
-                                <p>{user.user.name}</p>
-                                <p className='text-sm'>{user.user.email}</p>
+                                <p>{user?.user?.name || 'User'}</p>
+                                <p className='text-sm'>{user?.user?.email || ''}</p>
                             </DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem asChild className="cursor-pointer">

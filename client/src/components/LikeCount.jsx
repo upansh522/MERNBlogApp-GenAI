@@ -11,7 +11,7 @@ const LikeCount = ({ props }) => {
     const [hasLiked, setHasLiked] = useState(false)
     const user = useSelector(state => state.user)
 
-    const { data: blogLikeCount, loading, error } = useFetch(`${getEvn('VITE_API_BASE_URL')}/blog-like/get-like/${props.blogid}/${user && user.isLoggedIn ? user.user._id : ''}`, {
+    const { data: blogLikeCount, loading, error } = useFetch(`${getEvn('VITE_API_BASE_URL')}/blog-like/get-like/${props.blogid}/${user && user.isLoggedIn ? user?.user?._id : ''}`, {
         method: 'get',
         credentials: 'include',
     })
@@ -33,7 +33,7 @@ const LikeCount = ({ props }) => {
                 method: 'post',
                 credentials: 'include',
                 headers: { 'Content-type': "application/json" },
-                body: JSON.stringify({ user: user.user._id, blogid: props.blogid })
+                body: JSON.stringify({ user: user?.user?._id, blogid: props.blogid })
             })
 
             if (!response.ok) {

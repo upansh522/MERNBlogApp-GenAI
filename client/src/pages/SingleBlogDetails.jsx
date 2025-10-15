@@ -10,6 +10,7 @@ import { useFetch } from '@/hooks/useFetch'
 import { AvatarImage } from '@radix-ui/react-avatar'
 import { decode } from 'entities'
 import moment from 'moment'
+import usericon from '@/assets/images/user.png'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -32,10 +33,10 @@ const SingleBlogDetails = () => {
                         <div className='flex justify-between items-center'>
                             <div className='flex justify-between items-center gap-5'>
                                 <Avatar>
-                                    <AvatarImage src={data.blog.author.avatar} />
+                                    <AvatarImage src={data?.blog?.author?.avatar || usericon} />
                                 </Avatar>
                                 <div>
-                                    <p className='font-bold'>{data.blog.author.name}</p>
+                                    <p className='font-bold'>{data?.blog?.author?.name || 'Unknown Author'}</p>
                                     <p>Date: {moment(data.blog.createdAt).format('DD-MM-YYYY')}</p>
                                 </div>
                             </div>
