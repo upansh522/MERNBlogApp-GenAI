@@ -50,7 +50,7 @@ const Comment = ({ props }) => {
 
     return (
         <div>
-            <h4 className='flex items-center gap-2 text-2xl font-bold'> <FaComments className='text-violet-500' /> Comment</h4>
+            <h4 className='flex items-center gap-2 text-2xl font-bold text-black'> <FaComments className='text-black' /> Comment</h4>
 
             {user && user.isLoggedIn
                 ?

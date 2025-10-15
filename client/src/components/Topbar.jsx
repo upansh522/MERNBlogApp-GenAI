@@ -59,7 +59,7 @@ const Topbar = () => {
     }
 
     return (
-        <div className='flex justify-between items-center h-16 fixed w-full z-20 bg-white px-5 border-b'>
+        <div className='flex justify-between items-center h-16 fixed w-full z-20 bg-white px-5 border-b text-base md:text-lg font-bold'>
             <div className='flex justify-center items-center gap-2'>
                 <button onClick={toggleSidebar} className='md:hidden' type='button'>
                     <AiOutlineMenu />
@@ -68,12 +68,18 @@ const Topbar = () => {
                     <img src={logo} className='md:w-auto w-48' />
                 </Link>
             </div>
-            <div className='w-[500px]'>
-                <div className={`md:relative md:block absolute bg-white left-0 w-full md:top-0 top-16 md:p-0 p-5 ${showSearch ? 'block' : 'hidden'}`}>
-                    <SearchBox />
-                </div>
-            </div>
+            <div className='hidden md:flex flex-1 justify-center'></div>
             <div className='flex items-center gap-5'>
+
+                {/* Desktop circular search toggle */}
+                <button onClick={toggleSearch} type='button' className={`hidden md:flex items-center justify-center h-10 w-10 rounded-full border transition-colors ${showSearch ? 'bg-white text-black border-black' : 'bg-black text-white border-transparent'}`}>
+                    <IoMdSearch size={18} />
+                </button>
+                <div className={`hidden md:block overflow-hidden transition-all duration-300 ${showSearch ? 'w-96 opacity-100' : 'w-0 opacity-0'}`}>
+                    <div className='ml-0'>
+                        <SearchBox />
+                    </div>
+                </div>
 
                 <button onClick={toggleSearch} type='button' className='md:hidden block'>
                     <IoMdSearch size={25} />

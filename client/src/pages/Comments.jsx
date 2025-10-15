@@ -67,7 +67,7 @@ const Comments = () => {
 
                                         <TableCell className="flex gap-3">
 
-                                            <Button onClick={() => handleDelete(comment._id)} variant="outline" className="hover:bg-violet-500 hover:text-white" >
+                                            <Button onClick={() => handleDelete(comment._id)} variant="outline" className="hover:bg-black hover:text-white" >
                                                 <FaRegTrashAlt />
                                             </Button>
                                         </TableCell>

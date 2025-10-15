@@ -37,7 +37,7 @@ const AppSidebar = () => {
                 <SidebarGroup>
                     <SidebarMenu>
                         <SidebarMenuItem>
-                            <SidebarMenuButton>
+                            <SidebarMenuButton className="text-base font-bold">
                                 <IoHomeOutline />
                                 <Link to={RouteIndex}>Home</Link>
                             </SidebarMenuButton>
@@ -46,13 +46,13 @@ const AppSidebar = () => {
                         {user && user.isLoggedIn
                             ? <>
                                 <SidebarMenuItem>
-                                    <SidebarMenuButton>
+                                    <SidebarMenuButton className="text-base font-bold">
                                         <GrBlog />
                                         <Link to={RouteBlog}>Blogs</Link>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
                                 <SidebarMenuItem>
-                                    <SidebarMenuButton>
+                                    <SidebarMenuButton className="text-base font-bold">
                                         <FaRegComments />
                                         <Link to={RouteCommentDetails}>Comments</Link>
                                     </SidebarMenuButton>
@@ -64,7 +64,7 @@ const AppSidebar = () => {
                         {user && user.isLoggedIn && user.user.role === 'admin'
                             ? <>
                                 <SidebarMenuItem>
-                                    <SidebarMenuButton>
+                                    <SidebarMenuButton className="text-base font-bold">
                                         <LuUsers />
                                         <Link to={RouteUser}>Users</Link>
                                     </SidebarMenuButton>

@@ -74,7 +74,7 @@ const User = () => {
 
                                         <TableCell className="flex gap-3">
 
-                                            <Button onClick={() => handleDelete(user._id)} variant="outline" className="hover:bg-violet-500 hover:text-white" >
+                                            <Button onClick={() => handleDelete(user._id)} variant="outline" className="hover:bg-black hover:text-white" >
                                                 <FaRegTrashAlt />
                                             </Button>
                                         </TableCell>

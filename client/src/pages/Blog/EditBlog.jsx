@@ -252,15 +252,21 @@ const EditBlog = () => {
                                         <FormItem>
                                             <div className="flex justify-between items-center mb-2">
                                                 <FormLabel>Blog Content</FormLabel>
-                                                <Button 
-                                                    type="button" 
-                                                    variant="outline" 
+                                                <Button
+                                                    type="button"
                                                     size="sm"
                                                     onClick={handleGenerateContent}
                                                     disabled={isGenerating}
-                                                    className="ml-2"
+                                                    className={`ml-2 relative overflow-hidden rounded-full px-3 py-2 flex items-center gap-2 bg-black text-white ${isGenerating ? 'opacity-90 cursor-wait' : 'hover:bg-black/90'}`}
                                                 >
-                                                    {isGenerating ? 'Generating...' : '✨ Generate with AI'}
+                                                    <img src="/Ai.webp" alt="AI" className="w-5 h-5 rounded-sm shadow-sm" />
+                                                    <span className="whitespace-nowrap">{isGenerating ? 'Generating…' : 'Generate with AI'}</span>
+                                                    {isGenerating && (
+                                                        <span className="absolute inset-0 pointer-events-none">
+                                                            <span className="absolute -inset-12 animate-[spin_1.4s_linear_infinite] rounded-full border-2 opacity-20 border-white"></span>
+                                                            <span className="absolute inset-0 animate-pulse bg-white/10"></span>
+                                                        </span>
+                                                    )}
                                                 </Button>
                                             </div>
                                             <FormControl>

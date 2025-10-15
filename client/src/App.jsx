@@ -7,9 +7,6 @@ import Index from './pages/Index'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Profile from './pages/Profile'
-import AddCategory from './pages/Category/AddCategory'
-import CategoryDetails from './pages/Category/CategoryDetails'
-import EditCategory from './pages/Category/EditCategory'
 import AddBlog from './pages/Blog/AddBlog'
 import BlogDetails from './pages/Blog/BlogDetails'
 import EditBlog from './pages/Blog/EditBlog'
@@ -44,9 +41,6 @@ const App = () => {
 
 
           <Route element={<OnlyAdminAllowed />}>
-            <Route path={RouteAddCategory} element={<AddCategory />} />
-            <Route path={RouteCategoryDetails} element={<CategoryDetails />} />
-            <Route path={RouteEditCategory()} element={<EditCategory />} />
             <Route path={RouteUser} element={<User />} />
           </Route>
 

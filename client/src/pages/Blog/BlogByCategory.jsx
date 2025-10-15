@@ -16,11 +16,11 @@ const BlogByCategory = () => {
     if (loading) return <Loading />
     return (
         <>
-            <div className='flex items-center gap-3 text-2xl font-bold text-violet-500 border-b pb-3 mb-5'>
+            <div className='flex items-center gap-3 text-2xl font-bold text-black border-b border-black pb-3 mb-5'>
                 <BiCategory />
                 <h4  >   {blogData && blogData.categoryData?.name}</h4>
             </div>
-            <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10'>
+            <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 md:gap-8 items-stretch'>
                 {blogData && blogData.blog.length > 0
                     ?
                     blogData.blog.map(blog => <BlogCard key={blog._id} props={blog} />)

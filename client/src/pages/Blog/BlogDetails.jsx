@@ -76,12 +76,12 @@ const BlogDetails = () => {
                                         <TableCell>{moment(blog?.createdAt).format('DD-MM-YYYY')}</TableCell>
                                      
                                         <TableCell className="flex gap-3">
-                                            <Button variant="outline" className="hover:bg-violet-500 hover:text-white" asChild>
+                                            <Button variant="outline" className="hover:bg-black hover:text-white" asChild>
                                                 <Link to={RouteBlogEdit(blog._id)}>
                                                     <FiEdit />
                                                 </Link>
                                             </Button>
-                                            <Button onClick={() => handleDelete(blog._id)} variant="outline" className="hover:bg-violet-500 hover:text-white" >
+                                            <Button onClick={() => handleDelete(blog._id)} variant="outline" className="hover:bg-black hover:text-white" >
                                                 <FaRegTrashAlt />
                                             </Button>
                                         </TableCell>
