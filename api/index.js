@@ -17,12 +17,25 @@ const app = express();
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://mern-blog-app-gen-9ub5mv1f5-upanish522s-projects.vercel.app" || "http://localhost:3000",
-    credentials: true,
-  })
-);
+const allowedOrigins = [
+  "https://mern-blog-app-gen-9ub5mv1f5-upanish522s-projects.vercel.app",
+  "https://mern-blog-app-gen-mbdu8onh6-upanish522s-projects.vercel.app",
+  "http://localhost:3000"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow non-browser requests (like Postman) that have no origin
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
 
 // route setup
 
