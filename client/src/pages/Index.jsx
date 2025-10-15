@@ -27,7 +27,7 @@ const Index = () => {
                         <div className='flex-1'>
                             <SearchBox />
                         </div>
-                        <button className='h-9 px-4 rounded-full bg-black text-white hover:bg-black/90'>Search</button>
+                        
                     </div>
                 </div>
             </section>
