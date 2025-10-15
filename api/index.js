@@ -20,7 +20,7 @@ app.use(express.json());
 const allowedOrigins = [
   "https://mern-blog-app-gen-9ub5mv1f5-upanish522s-projects.vercel.app",
   "https://mern-blog-app-gen-mbdu8onh6-upanish522s-projects.vercel.app",
-  "http://localhost:3000"
+  "http://localhost:5173"
 ];
 
 app.use(cors({
