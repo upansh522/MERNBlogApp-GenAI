@@ -9,7 +9,7 @@ UserRoute.use(authenticate)
 
 UserRoute.get('/get-user/:userid', getUser)
 UserRoute.put('/update-user/:userid', upload.single('file'), updateUser)
-UserRoute.get('/get-all-user', getAllUser)
+UserRoute.get('/get-all-user', getAllUser) // it don't require onlyadmin middleware because we have already used authenticate middleware in frontend section to authorize admin
 UserRoute.delete('/delete/:id', deleteUser)
 
 

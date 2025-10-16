@@ -39,7 +39,7 @@ export const addBlog = async (req, res, next) => {
 
     const blog = new Blog({
       author: data.author,
-      category: data.category,
+      category: data.category, // category in id form from frontend so required to get category name when ever we fetch blogs
       title: data.title,
       slug: `${data.slug}-${Math.round(Math.random() * 100000)}`,
       featuredImage: featuredImage,
@@ -56,7 +56,7 @@ export const addBlog = async (req, res, next) => {
     next(handleError(500, error.message));
   }
 };
-export const editBlog = async (req, res, next) => {
+export const editBlog = async (req, res, next) => { // get Blog details for edit using _id
   try {
     const { blogid } = req.params;
     const blog = await Blog.findById(blogid).lean();
@@ -160,7 +160,7 @@ export const getBlog = async (req, res, next) => {
   try {
     const { slug } = req.params;
     const blog = await Blog.findOne({ slug })
-      .populate("author", "name avatar role")
+      .populate("author", "name avatar role") 
       .lean()
       .exec();
 

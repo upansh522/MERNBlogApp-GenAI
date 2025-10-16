@@ -2,6 +2,7 @@ import { handleError } from "../helpers/handleError.js"
 import User from "../models/user.model.js"
 import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+
 export const Register = async (req, res, next) => {
     try {
         const { name, email, password } = req.body
@@ -58,6 +59,11 @@ export const Login = async (req, res, next) => {
             sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
             path: '/'
         })
+
+        //.toObject is used beacause mongoose document is not a plain JSobject so to delete a property we need to convert it into plain JS object
+        // Here getters:true is used to include virtual properties if any defined in schema
+        // Virtuals are fields you define on a Mongoose schema that don’t get stored in MongoDB, but are computed dynamically when you retrieve the document.
+
 
         const newUser = user.toObject({ getters: true })
         delete newUser.password
